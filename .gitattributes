@@ -1,0 +1,6 @@
+sample_data/lcoe/solar_lcoe_ipm_metro_county.csv filter=lfs diff=lfs merge=lfs -text
+shapefile_1/downScaled_UtilityPV_Class1_Moderate_.dbf filter=lfs diff=lfs merge=lfs -text
+shapefile_1/downscaled_utilitypv_class1_moderate_.dbf filter=lfs diff=lfs merge=lfs -text
+selected_cpas_utilitypv_1.csv filter=lfs diff=lfs merge=lfs -text
+selected_cpas_utilitypv_2.csv filter=lfs diff=lfs merge=lfs -text
+sample_data/solar_lcoe_ipm_metro_county.csv filter=lfs diff=lfs merge=lfs -text

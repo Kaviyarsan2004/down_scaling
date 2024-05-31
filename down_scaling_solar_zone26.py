@@ -2,9 +2,9 @@ import pandas as pd
 
 # Step 1: Data Preparation
 # Load capacity.csv, cluster assignments, and LCOE dataset
-capacity_df = pd.read_csv("capacity.csv")
-cluster_assignments_df = pd.read_csv("BASN_UtilityPV_Class1_Moderate__site_cluster_assignments.csv")
-lcoe_df = pd.read_csv("solar_lcoe_conus_26_zone.csv")
+capacity_df = pd.read_csv(r"C:\Users\kavi5\Enhancing_Resilient_Solar_Power\git\down_scaling\sample_data\capacity.csv")
+cluster_assignments_df = pd.read_csv(r"C:\Users\kavi5\Enhancing_Resilient_Solar_Power\git\down_scaling\sample_data\BASN_UtilityPV_Class1_Moderate__site_cluster_assignments.csv")
+lcoe_df = pd.read_csv(r"C:\Users\kavi5\Enhancing_Resilient_Solar_Power\git\down_scaling\sample_data\solar_lcoe_conus_26_zone.csv")
 
 # Filter capacity dataframe for the specific zone and technology
 zone_number = 26
@@ -13,7 +13,7 @@ zone_capacity_df = capacity_df[(capacity_df["Zone"] == zone_number) & (capacity_
 
 # Extract cluster number from Resource column in capacity dataframe
 zone_capacity_df["Cluster"] = zone_capacity_df["Resource"].str.extract(r'(\d+)_anyQual')
-
+print(zone_capacity_df)
 # Step 2: Cluster Analysis
 clusters = zone_capacity_df["Cluster"].unique()
 
@@ -43,7 +43,7 @@ for cluster in clusters:
         selected_cpas.append(row)
         if cumulative_capacity >= cluster_capacity:
             break
-
+print(selected_cpas)
 # Step 4: Output
 selected_cpas_df = pd.DataFrame(selected_cpas)
 selected_cpas_df ["Zone"]=zone_number
