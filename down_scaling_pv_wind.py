@@ -9,7 +9,7 @@ import os
 from shapely import wkt
 import matplotlib.pyplot as plt
 
-capacity_file = r"C:\Users\kavi5\Enhancing_Resilient_Solar_Power\git\down_scaling\sample_data\combined_capacity_MGA_min.csv"#path to cluster specific capacity result for solar for each region file
+capacity_file = r"C:\Users\kavi5\iter2.csv"#path to cluster specific capacity result for solar for each region file
 CPAID_cluster_assignment = r"C:\Users\kavi5\Enhancing_Resilient_Solar_Power\git\down_scaling\sample_data\extra_outputs\extra_outputs\NY_Z_C&E_UtilityPV_Class1_Moderate__site_cluster_assignments.csv" #path to map of cluster to cpa connection file
 zone_capacity =r"C:\Users\kavi5\filtered_output.csv"#path to LCOE of each cpa and cpa_mw for each cpa file
 result = 'selected_cpas_utilitypv.csv'
@@ -29,10 +29,6 @@ def load_lcoe_data(lcoe_file: str) -> pd.DataFrame:
     lcoe_df = pd.read_csv(lcoe_file)
     return lcoe_df
 
-def sample_data(data, sample_fraction):
-    sampled = data.groupby('cluster').apply(lambda x: x.sample(frac=sample_fraction)).reset_index(drop=True)
-    sampled['unique_id'] = range(1, len(sampled) + 1)
-    return sampled
 
 def randromly_select_cluster( df : pd.DataFrame, tech: str):
     
